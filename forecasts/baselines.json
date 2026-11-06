@@ -1,0 +1,69 @@
+{
+ "declared_on": "2026-11-06",
+ "forecasts": {
+  "bot": {
+   "every": "per weekly CFTC report",
+   "flat": "No change: the grading-day close equals the entry close (baseline_est).",
+   "kind": "direction",
+   "label": "Prediction bot: corn, soybeans, Chicago and KC wheat, four weeks out",
+   "level": null,
+   "majority": {
+    "dir": "down",
+    "text": "Always say down: the more common four-week move over the backtest window (down in 1,398 of 2,736 weekly cases, Jan 7, 2013 to Aug 31, 2026, ended before the first live call)."
+   },
+   "min_n": 40,
+   "stale_days": 21,
+   "window": 12
+  },
+  "daily-old": {
+   "every": "daily",
+   "flat": "No change: the price on the judging day equals the price when the call was made (baseline_est).",
+   "kind": "direction",
+   "label": "Old Daily market call (retired Oct 3, 2026)",
+   "level": "No change: the price when the call was made, which is also the futures price then (baseline_est).",
+   "majority": null,
+   "majority_none": "none: no backtest window before the first call, so not scored",
+   "min_n": 52,
+   "retired": "2026-10-03",
+   "stale_days": 14,
+   "window": 52
+  },
+  "dairy": {
+   "every": "monthly",
+   "flat": null,
+   "kind": "level",
+   "label": "Read my check: the month's Class III price",
+   "level": "No change from the last announced Class III price (baseline_est; not on record yet, so not scored). The estimate is itself the futures settle, so the futures baseline is the estimate.",
+   "majority": null,
+   "min_n": 12,
+   "stale_days": 60,
+   "window": 12
+  },
+  "nowcast-dir": {
+   "every": "per WASDE",
+   "flat": "No change: USDA's next yield equals its last printed yield (baseline_est).",
+   "kind": "direction",
+   "label": "Yield nowcast: which way USDA's next corn and soybean yield moves",
+   "level": null,
+   "majority": {
+    "dir": "up",
+    "text": "Always say up: the more common direction of USDA's August, September and October yield changes for corn and soybeans, market years 2006/07 to 2025/26 (up 58, down 52, unchanged 6 of 116, from the WASDE archive)."
+   },
+   "min_n": 12,
+   "stale_days": 60,
+   "window": 12
+  },
+  "nowcast-yield": {
+   "every": "per WASDE",
+   "flat": null,
+   "kind": "level",
+   "label": "Yield nowcast: the corn and soybean yield USDA prints next",
+   "level": "No change: USDA's next yield equals its last printed yield (baseline_est). No futures price exists for a yield.",
+   "majority": null,
+   "min_n": 12,
+   "stale_days": 60,
+   "window": 12
+  }
+ },
+ "note": "Simple baselines for every forecast in forecast-record.jsonl, fixed on the date above. Each forecast is scored beside the best of its baselines, never against a coin flip. A baseline marked none is not scored. These rules are never changed; a new rule would be a new file with its own date."
+}
